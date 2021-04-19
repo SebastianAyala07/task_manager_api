@@ -8,6 +8,7 @@ app_name="tasks_app"
 router.register(r'api/tasks', views.TaskViewSet)
 
 urlpatterns = [
+    path('', views.redirect_documentation),
     path(
         'api/tasks/list/',
         views.ListTaskByUser.as_view(),

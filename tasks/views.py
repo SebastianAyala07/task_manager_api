@@ -1,3 +1,5 @@
+from django.shortcuts import redirect
+
 from rest_framework import status, filters, permissions, viewsets
 from rest_framework.generics import ListAPIView
 
@@ -24,3 +26,7 @@ class TaskViewSet(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
+
+
+def redirect_documentation(request):
+    return redirect('schema-swagger-ui')
